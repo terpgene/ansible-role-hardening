@@ -22,7 +22,7 @@ Ubuntu [20.04 LTS (Focal Fossa)](https://releases.ubuntu.com/focal/) and
 > **Note**
 >
 > There is a [SLSA](https://slsa.dev/) artifact present under the
-> [slsa action workflow](https://github.com/konstruktoid/ansible-role-hardening/actions/workflows/slsa.yml)
+> [slsa action workflow](https://github.com/terpgene/ansible-role-hardening/actions/workflows/slsa.yml)
 > for verification.
 
 ## Dependencies
@@ -40,7 +40,7 @@ None.
   tasks:
     - name: Include the hardening role
       ansible.builtin.include_role:
-        name: konstruktoid.hardening
+        name: ubuntu.hardening
       vars:
         block_blacklisted: true
         sshd_admin_net:
@@ -64,16 +64,16 @@ None.
         name: git
         state: present
 
-    - name: Checkout konstruktoid.hardening
+    - name: Checkout ubuntu.hardening
       become: true
       ansible.builtin.git:
-        repo: 'https://github.com/konstruktoid/ansible-role-hardening'
-        dest: /etc/ansible/roles/konstruktoid.hardening
+        repo: 'https://github.com/terpgene/ansible-role-hardening'
+        dest: /etc/ansible/roles/ubuntu.hardening
         version: master
 
     - name: Include the hardening role
       ansible.builtin.include_role:
-        name: konstruktoid.hardening
+        name: ubuntu.hardening
       vars:
         block_blacklisted: true
         sshd_admin_net:
